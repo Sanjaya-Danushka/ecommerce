@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button"
 import { useCartStore } from "@/store/cart-store"
 
 export function CartButton() {
-  const totalItems = useCartStore((s) => s.totalItems)
-  const count = totalItems()
+  const items = useCartStore((s) => s.items)
+  const count = items.reduce((sum, i) => sum + i.quantity, 0)
 
   return (
     <Button variant="outline" size="sm" className="relative">
