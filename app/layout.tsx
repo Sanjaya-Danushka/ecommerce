@@ -32,8 +32,8 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${jost.className} antialiased`}
     >
-      <body>
-        <ThemeProvider>
+      <body className="bg-background text-foreground">
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <Navbar />
           {children}
           <Footer />
