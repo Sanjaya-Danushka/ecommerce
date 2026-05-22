@@ -1,8 +1,8 @@
-import { Geist, Geist_Mono } from "next/font/google"
+import { Metadata } from "next";
+import { Geist, Geist_Mono, Jost } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
@@ -10,7 +10,15 @@ const fontMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-mono",
 })
+const jost = Jost({
+  subsets: ["latin"],
+  variable: "--font-jost",
+})
 
+export const metadata: Metadata = {
+  title: "Nike",
+  description: "An e-commerce platform for Nike",
+}
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -20,7 +28,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
+      className={`${jost.className} antialiased`}
     >
       <body>
         <ThemeProvider>{children}</ThemeProvider>
