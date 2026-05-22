@@ -1,10 +1,12 @@
-import { Metadata } from "next";
+import { Metadata } from "next"
 import { Geist, Geist_Mono, Jost } from "next/font/google"
 
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { Navbar } from "@/components/Navbar"
+import { Footer } from "@/components/Footer"
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'})
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" })
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -31,7 +33,11 @@ export default function RootLayout({
       className={`${jost.className} antialiased`}
     >
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )
